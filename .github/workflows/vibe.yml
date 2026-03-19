@@ -1,0 +1,23 @@
+name: vibe
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
+  workflow_dispatch:
+
+jobs:
+  vibe-setup:
+    name: Install and configure vibe
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install vibe
+        run: curl -LsSf https://mistral.ai/vibe/install.sh | bash
+
+      - name: Configure vibe
+        run: vibe --setup
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
