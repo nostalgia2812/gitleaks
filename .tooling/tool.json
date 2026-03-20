@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "id": "gitleaks",
+  "name": "Gitleaks",
+  "hub_manifest": "https://github.com/nostalgia2812/.github/blob/claude/tooling-filing-system-uG7Gs/.tooling/tool_manifest.json",
+  "category": "secret-scanning",
+  "subcategory": "git-secrets",
+  "description": "SAST tool for detecting hardcoded secrets like passwords, API keys, and tokens in git repos",
+  "language": "Go",
+  "license": "MIT",
+  "maintainer": "nostalgia2812",
+  "status": "active",
+  "priority": "critical",
+  "install": {
+    "go": "go install github.com/gitleaks/gitleaks/v8@latest",
+    "brew": "brew install gitleaks",
+    "docker": "docker pull ghcr.io/gitleaks/gitleaks:latest",
+    "binary": "https://github.com/gitleaks/gitleaks/releases/latest"
+  },
+  "health_check": "gitleaks version",
+  "config_files": [".gitleaks.toml"],
+  "ci_integration": ".github/workflows/security-scan.yml",
+  "documentation": "https://github.com/nostalgia2812/.github/blob/claude/tooling-filing-system-uG7Gs/TOOLS_INDEX.md#gitleaks",
+  "tags": ["secrets", "scanning", "git", "sast", "ci-cd", "critical"],
+  "related_tools": ["trufflehog"],
+  "last_updated": "2026-03-20"
+}
